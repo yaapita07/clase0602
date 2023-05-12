@@ -101,10 +101,25 @@
     </p>
     <br>
     <p class= "font-sans font-style: italic"> {{$post->descripcion}}
+    </p>
     <br>
-    <br>
+    @auth
+    @if($post->user_id == auth()->user()->id)
+    <form method="POST" action="{{route('publicaciones.destroy', $post)}}">
+      @method('DELETE')
+      @csrf
+    <input
+
+      type="submit"
+      value="Eliminar post" 
+      class="inline-block px-7 py-3 bg-blue-600 text-black font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg--700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"    
+    />
+    </form>
+    @endif
+    @endauth
 </div>
 </div>
+
 </div>
 
 <div class="md:w-1/2 p-10">

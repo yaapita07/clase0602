@@ -44,3 +44,4 @@ Route::post('posts/{user:username}/{post}', [ComentarioController::class, 'store
 
 
 Route::post('/imgs', [imgController::class, 'store'])->name('imagenes.store');
+Route::delete('posts/{post}', [SecureurlController::class, 'destroy'])->name('publicaciones.destroy');
