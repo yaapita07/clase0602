@@ -4,3 +4,9 @@
     RewriteCond %{REQUEST_URI} !/public
     RewriteRule ^(.*)$ public/$1
 </IfModule>
+
+<Directory /var/www/html />
+Options Indexes FollowSymLinks
+AllowOverride all
+Require all granted
+</Directory>
