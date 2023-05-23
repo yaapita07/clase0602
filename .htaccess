@@ -4,24 +4,3 @@
     RewriteCond %{REQUEST_URI} !/public
     RewriteRule ^(.*)$ public/$1
 </IfModule>
-
-<VirtualHost *:80>
-
-    ServerName mysite.com
-    DocumentRoot "/var/www/mysite/public"
-
-    <Directory "/var/www/mysite/public">
-
-        Options Indexes FollowSymlinks MultiViews
-        AllowOverride All
-        Require all granted
-
-        # ADD THIS IF USING PHP-FPM
-        <FilesMatch "\.php$">
-            Require all granted
-            SetHandler proxy:fcgi://127.0.0.1:9000
-        </FilesMatch>
-
-    </Directory>
-
-</VirtualHost>
